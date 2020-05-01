@@ -251,7 +251,11 @@ class Vtiger_ListView_Model extends Vtiger_Base_Model {
 			} 
 		} else if(empty($orderBy) && empty($sortOrder) && $moduleName != "Users"){
 			//List view will be displayed on recently created/modified records
-			$listQuery .= ' ORDER BY vtiger_crmentity.modifiedtime DESC';
+            if ($moduleName == 'Stats') {
+                $listQuery .= ' ORDER BY vtiger_statscf.cf_1124 DESC';
+            } else {
+                $listQuery .= ' ORDER BY vtiger_crmentity.modifiedtime DESC';
+            }
 		}
 
 		$viewid = ListViewSession::getCurrentView($moduleName);

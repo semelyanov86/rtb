@@ -21,7 +21,9 @@ $languageStrings = array (
   'Interest' => 'Проявили интерес',
   'Second Meeteing' => 'Пришли на вторую встречу',
   'Turnover' => 'Товарооборот',
-'Statistics' => 'Статданные'
+'Statistics' => 'Статданные',
+    'Date' => 'Дата данных',
+    'Time' => 'Время данных'
 );
 
 $jsLanguageStrings = array (
