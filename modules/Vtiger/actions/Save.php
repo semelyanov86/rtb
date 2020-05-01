@@ -43,7 +43,9 @@ class Vtiger_Save_Action extends Vtiger_Action_Controller {
                         }
 			if ($request->get('returntab_label')){
 				$loadUrl = 'index.php?'.$request->getReturnURL();
-			} else if($request->get('relationOperation')) {
+			} elseif ($request->get('module') == 'Stats') {
+			    $loadUrl = 'index.php?module=ITS4YouReports&view=Detail&record=25';
+            } else if($request->get('relationOperation')) {
 				$parentModuleName = $request->get('sourceModule');
 				$parentRecordId = $request->get('sourceRecord');
 				$parentRecordModel = Vtiger_Record_Model::getInstanceById($parentRecordId, $parentModuleName);

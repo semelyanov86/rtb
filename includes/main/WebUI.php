@@ -161,8 +161,13 @@ class Vtiger_WebUI extends Vtiger_EntryPoint {
 					$defaultModule = vglobal('default_module');
 					$moduleModel = Vtiger_Module_Model::getInstance($defaultModule);
 					if(!empty($defaultModule) && $defaultModule != 'Home' && $moduleModel && $moduleModel->isActive()) {
-						$module = $defaultModule; $qualifiedModuleName = $defaultModule; $view = 'List';
-						if($module == 'Calendar') { 
+						$module = $defaultModule; $qualifiedModuleName = $defaultModule;
+                        if($module == 'Stats') {
+                            $view = 'Edit';
+                        } else {
+                            $view = 'List';
+                        }
+						if($module == 'Calendar') {
 							// To load MyCalendar instead of list view for calendar
 							//TODO: see if it has to enhanced and get the default view from module model
                                                     // SalesPlatform.ru begin

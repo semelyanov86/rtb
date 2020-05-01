@@ -42,6 +42,7 @@
 				</div>
 				<div id="navbar" class="col-sm-6 col-md-3 col-lg-3 collapse navbar-collapse navbar-right global-actions">
 					<ul class="nav navbar-nav">
+						<li><div><a href="http://rtb.team/index.php?module=ITS4YouReports&view=Detail&record=25" class="fa fa-star" title="Показать статистику" aria-hidden="true"></a></div></li>
 						<li>
 							<div class="dropdown">
 								<div class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">

@@ -40,6 +40,12 @@ class Vtiger_EditRecordStructure_Model extends Vtiger_RecordStructure_Model {
 							if(!empty($defaultValue) && !$recordId)
 								$fieldModel->set('fieldvalue', $defaultValue);
 						}
+						if ($fieldName == 'cf_1124' && !$fieldModel->get('fieldvalue')) {
+						    $fieldModel->set('fieldvalue', date('Y-m-d'));
+                        }
+						if ($fieldName == 'cf_1126' && !$fieldModel->get('fieldvalue')) {
+						    $fieldModel->set('fieldvalue', date('H:i:s'));
+                        }
 						$values[$blockLabel][$fieldName] = $fieldModel;
                         if ($fieldName == 'taxclass' && count($recordModel->getTaxClassDetails()) < 1) {
                             unset($values[$blockLabel][$fieldName]);
