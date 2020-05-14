@@ -10,7 +10,7 @@ class Stats_CheckBeforeSave_Action extends Vtiger_Action_Controller {
         $dataArr = $request->get('checkBeforeSaveData');
         $response = "OK";
         $message = "";
-        $selected_date = $dataArr['cf_1124'];
+        $selected_date = Vtiger_Date_UIType::getDBInsertedValue($dataArr['cf_1124']);
         $user = $dataArr['assigned_user_id'];
         if($request->get('editViewAjaxMode')) {
             $mode = $request->get('createMode');
@@ -22,7 +22,13 @@ class Stats_CheckBeforeSave_Action extends Vtiger_Action_Controller {
                     $response = "ALERT";
                     $message = "Вы уже вносили данные на текущую дату.";
                 }
-
+                if (!Users_Record_Model::getCurrentUserModel()->isAdminUser()) {
+                    $curDate = date('Y-m-d');
+                    if ($selected_date < $curDate) {
+                        $response = "ALERT";
+                        $message = "Вы не можете вносить данные задним числом.";
+                    }
+                }
             }
             echo json_encode(array("response" => $response, "message" => $message));
         }

@@ -144,7 +144,7 @@
 							<li><div><a href="#" class="taskManagement vicon vicon-task" title="{vtranslate('Tasks','Vtiger')}" aria-hidden="true"></a></div></li>
 						{/if} 
                                                 {* SalesPlatform.ru begin *}
-                                                <li><div><a href="https://www.youtube.com/watch?v=ZN_71awMw6k&list=PLWLK4nCPssam9SvuRix_tEhuvm7ytaWzA" class="fa fa-info"  title="{vtranslate('LBL_MANUAL')}" aria-hidden="true" target="_blank"></a> </div></li>
+                                                <li><div><a href="https://docs.google.com/document/d/11sz_QQeZjnkVUr7SGGYUjTplh4dOAg3-ecRPYBwSjpU/edit?usp=sharing" class="fa fa-info"  title="{vtranslate('LBL_MANUAL')}" aria-hidden="true" target="_blank"></a> </div></li>
                                                 {* SalesPlatform.ru end *}
 						<li class="dropdown">
 							<div style="margin-top: 15px;">
