@@ -46,6 +46,9 @@ class Vtiger_EditRecordStructure_Model extends Vtiger_RecordStructure_Model {
 						if ($fieldName == 'cf_1126' && !$fieldModel->get('fieldvalue')) {
 						    $fieldModel->set('fieldvalue', date('H:i:s'));
                         }
+                        if ($fieldName == 'assigned_group') {
+                            $fieldModel->set('fieldvalue', $this->getDefaultGroup($recordModel->get('assigned_user_id')));
+                        }
 						$values[$blockLabel][$fieldName] = $fieldModel;
                         if ($fieldName == 'taxclass' && count($recordModel->getTaxClassDetails()) < 1) {
                             unset($values[$blockLabel][$fieldName]);
@@ -57,4 +60,10 @@ class Vtiger_EditRecordStructure_Model extends Vtiger_RecordStructure_Model {
 		$this->structuredValues = $values;
 		return $values;
 	}
+	private function getDefaultGroup($userId)
+    {
+        $userGroupFocus=new GetUserGroups();
+        $userGroupFocus->getAllUserGroups($userId);
+        return $userGroupFocus->user_groups[0];
+    }
 }

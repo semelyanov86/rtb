@@ -23,7 +23,9 @@ $languageStrings = array (
   'Turnover' => 'Товарооборот',
 'Statistics' => 'Статданные',
     'Date' => 'Дата данных',
-    'Time' => 'Время данных'
+    'Time' => 'Время данных',
+    'System Information' => 'Системная информация',
+    'Assigned To Group' => 'Назначен на группу'
 );
 
 $jsLanguageStrings = array (
