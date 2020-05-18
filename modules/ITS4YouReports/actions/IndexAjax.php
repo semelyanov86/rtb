@@ -207,6 +207,9 @@ class ITS4YouReports_IndexAjax_Action extends Vtiger_Action_Controller {
         global $current_user;
         $currentUserModel = Users_Record_Model::getInstanceFromUserObject($current_user);
         $picklistGroupValues = $currentUserModel->getAccessibleGroupForModule($moduleName);
+        if (empty($picklistGroupValues)) {
+            $picklistGroupValues = $currentUserModel->getAccessibleGroups();
+        }
         // ITS4YOU-END
 
 //$adb->setDebug(true);
