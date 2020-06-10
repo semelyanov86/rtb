@@ -28,6 +28,10 @@ class Stats_CheckBeforeSave_Action extends Vtiger_Action_Controller {
                         $response = "ALERT";
                         $message = "Вы не можете вносить данные задним числом.";
                     }
+                    if ($selected_date > $curDate) {
+                        $response = "ALERT";
+                        $message = "Вы не можете вносить данные за будущий период.";
+                    }
                 }
             }
             echo json_encode(array("response" => $response, "message" => $message));
