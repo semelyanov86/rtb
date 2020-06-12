@@ -30,6 +30,11 @@ class Vtiger_Deprecated {
 
 	static function getFullNameFromArray($module, $fieldValues) {
 		$entityInfo = getEntityFieldNames($module);
+		if ($module == 'Users') {
+		    $tmp = $entityInfo['fieldname'];
+		    array_unshift($tmp, 'user_name');
+		    $entityInfo['fieldname'] = $tmp;
+        }
 		$fieldsName = $entityInfo['fieldname'];
 		$displayName = self::getCurrentUserEntityFieldNameDisplay($module, $fieldsName, $fieldValues);
 		return $displayName;
