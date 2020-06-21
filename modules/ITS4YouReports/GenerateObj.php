@@ -7418,7 +7418,7 @@ WHERE " . implode(" AND ", $conditions);
 
     private function getFldNumberFormat($fld_name = "", $fld_value = "", $currency_id = "", $skip_format = false) {
         $return_value = $fld_value;
-        
+        $intArr = array('invite_SUM', 'invite_sum', 'invited_SUM', 'invited_sum', 'meetings_SUM', 'meetings_sum', 'interest_SUM', 'interest_sum', 'meeting_sec_SUM', 'meeting_sec_sum');
         if ($fld_name != "") {
             $fld_name_arr = explode("_", $fld_name);
 
@@ -7437,6 +7437,9 @@ WHERE " . implode(" AND ", $conditions);
 
             $return_value = $this->getFldFormatedValue($fld_ui_type, $return_value, $fld_alias, $fld_calculation_type, $currency_id, $skip_format);
             // ITS4YOU-CR SlOl | 16.6.2014 12:06 getFLD UI type and format value end
+        }
+        if (in_array($fld_name, $intArr)) {
+            return intval($return_value);
         }
         return $return_value;
     }
