@@ -8654,7 +8654,7 @@ WHERE " . implode(" AND ", $conditions);
             $legend_str = "{
                             layout: 'horizontal',
                             align: '$legendAlign',
-                            verticalAlign: 'bottom',
+                            verticalAlign: 'top',
                             floating: false,
                             backgroundColor: '#FFFFFF'
                         }";
