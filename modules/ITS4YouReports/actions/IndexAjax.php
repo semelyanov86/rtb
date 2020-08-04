@@ -346,6 +346,11 @@ class ITS4YouReports_IndexAjax_Action extends Vtiger_Action_Controller {
                         $selected = " selected='selected' ";
                     }
                 }
+                if (!empty($uitype_row) && in_array($uitype_row["uitype"], ITS4YouReports::$s_users_uitypes)) {
+                    $valueArr = explode(' ', $sf_value);
+                    $sf_value = $valueArr[1] . ' ' . $valueArr[2];
+                }
+
                 $return_html .= "<option id='$key' value='$sf_value' $selected>$sf_text</option>";
 
             }
