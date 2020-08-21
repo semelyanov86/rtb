@@ -6856,6 +6856,9 @@ WHERE " . implode(" AND ", $conditions);
 
     private function getSubGroupRow($group_value = "", $currency_id, $agi = 1, $g_con_sql = "") {
         $return_html = "";
+        if($this->outputformat=="XLS") {
+            $return_html = array();
+        }
         $return_arr = array();
         // groups 0 1 2
         $bg_color = $this->g_colors[$agi];
